@@ -1,0 +1,13 @@
+import labelbox
+
+LB_API_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbTIzMDl0bTAwNHU0MDd5NzZxYWNmOXJyIiwib3JnYW5pemF0aW9uSWQiOiJjbTIzMDl0bGowNHUzMDd5N2hzZXI4OXYxIiwiYXBpS2V5SWQiOiJjbTIzOHJvOWcxOHI2MDd4MzkxN3RjNHYyIiwic2VjcmV0IjoiZTFjYTljZDdlOGJkOWIxZjkwZWZiZThiYTRkN2MxZWMiLCJpYXQiOjE3Mjg1NjEzMDEsImV4cCI6MjM1OTcxMzMwMX0.-vNSCSPtMVL2a8XSNrY1af67brl93Cbf_WCkZgH1OSg'
+
+client = labelbox.Client(api_key = LB_API_KEY)
+export_task = labelbox.ExportTask.get_task(client, "cm238ctbc00u707vd2e940gpe")
+
+converter = labelbox.FileConverter(file_path="export-output.json")
+export_task.get_stream(converter=converter).start()
+
+def json_stream_handler(output: labelbox.JsonConverterOutput):
+  print(output.json_str)
+export_task.get_stream().start(stream_handler=json_stream_handler)
