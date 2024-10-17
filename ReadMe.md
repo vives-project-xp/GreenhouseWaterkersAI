@@ -23,8 +23,6 @@ Here you find a small list of the main goals we set for ourself with deadlines t
 - 22/11 Deployment on edge device (perhabs with casing)
 
 ## Materials and software
-![image](https://github.com/user-attachments/assets/48adba2e-fc93-48c7-a500-c6a99af8d1dd)
-
 
 ## Proces
 At this section you can find a step by step analysis of the steps we took to get to the final project
@@ -83,12 +81,14 @@ The left top to right bottom diagonal (green squares) is very important in this 
 8) Now you have access to **Live classification** and **Model testing**. Model testing will give you an overview about all test data, which you can have a look at. In classification you can test on each individual image and most importantly test on data collected with your embedded device (with camera of course).
    
 **--!EXPLANATION ON HOW TO CONNECT TO DEVICE!--**
-   
-
+The first step is installing Edge Impulse on your device, in our case a Raspberry Pi 5. There is a very simple [guide](https://docs.edgeimpulse.com/docs/edge-ai-hardware/cpu/raspberry-pi-5) made by Edge Impulse themselves. After having installed it, you need to follow the on-screen prompts and set up Edge Impulse on the device. It is a very simple process of logging in, selecting your input devices and what project you're working on.
       
 
 ### Deployment
-
+To deploy the model on your device, there are 2 ways. The first is with the SDK's. Simply go to your Edge Impulse dashboard and navigate to the "Deployement" tab. 
+![image](./ArchitectureDocuments/Deploy.png)
+After having selected the right deployement(in our case that is Linux AARCH64), you need to run `edge-impulse-linux-runner` on your device and it should connect if you set it up right.
+The second way involves placing the downloaded model file onto the device itself. This can be done through various means, we used WinSCP to place the file onto our Raspberry Pi 5. After that, you can use the model freely in your project.
 ### Dashboard
 
 
