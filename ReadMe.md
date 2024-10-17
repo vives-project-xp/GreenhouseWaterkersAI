@@ -23,6 +23,8 @@ Here you find a small list of the main goals we set for ourself with deadlines t
 - 22/11 Deployment on edge device (perhabs with casing)
 
 ## Materials and software
+![image](https://github.com/user-attachments/assets/48adba2e-fc93-48c7-a500-c6a99af8d1dd)
+
 
 ## Proces
 At this section you can find a step by step analysis of the steps we took to get to the final project
