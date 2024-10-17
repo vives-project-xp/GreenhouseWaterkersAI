@@ -46,13 +46,48 @@ We then proceeded to get the new model on the raspberry and test it. While worki
 Below you find the [architecture document](./ArchitectureDocuments/ArchitectureDoc.pdf) with some explanation.
 ![image](https://github.com/user-attachments/assets/0e066311-f14f-4c5c-9857-6393a01e0a65)
 ### Software
-To train our model we use different libraries, software and hardware devices. To capture images from the watercress we used the camera of our phone and saved them on harddrive. Later we also used Labelbox to label the images (and save them). This is how we created our dataset, which exists only of folders with the days. This because edge impulse can automatically split between validation, training and test data.
+To train our model we use different libraries, software and hardware devices. To capture images from the watercress we used the camera of our phone and saved them on harddrive. Later we also used Labelbox to label the images (and save them). This is how we created our dataset, which exists only of folders with the days. This because edge impulse can automatically split between validation, training and test data. To evaluate, display and proof our model we will create a small and basic dashboard using streamlit (which is a python library used for dashboard representations).
 
 ### Hardware
+As embedded device to run our model we chose the raspberry pi 5. It's a single board computers which we can use to deploy our AI model. We use raspberry pi camera V2 (connected with 4-lane MIPI camera display transceivers) and athe sense hat, which uses a LED matrix to represent for example the predicted age (contains a joystick button)
 
+### Deployment | [Edge Impulse documentation](https://docs.edgeimpulse.com/docs)
+There are multiple options to go on and deploy the model. We can transfer the files by downloading the model from edge impulse and putting them on the sd card. We also have the possibilty to connect via the raspberry pi 5 to edge impulse directly. 
 
 ## Guide
 This section describes the exact steps to take to make this project yourself!
+### Dataset creation
+
+### Edge Impulse | [Edge Impulse](https://studio.edgeimpulse.com/) 
+1) After signing up you can create and name a project, which will lead you to the dashboard screen. Scroll down till you find the area about **project info** at the right side. For this project set the labeling method to "One label per data item". This setting is used for classification. The other one is used for object detection, which we don't need for this specific project.
+2) For now we can skip the device section as we will upload images and not get the data ourselves. If you want to make the images with your embedded device, connect using the edge impulse documentation (or follow the steps later in this guide for raspberry pi 5 only).
+3) Proceed to the **Data acquisition** section and press upload data. For upload mode you can press "select a folder" as we've labeled all data in folders. Under select files press the button and navigate to your data folder. Now select the correct folder (iterate over all of the folders). Under upload into category we chose to let edge impulse split the data itself, but if you have performed the split you can select "training" or "test" data accordingly. Under "label" choose the bottom option and fill in the label, matching the folder name (so "0" for day 0, etc...). At the top you will now find the amount of items and the split. Aim for a split of around 80%/20% for training/test data.
+    - Training data: This is the dataset used to teach the machine learning model. The model learns the relationships between input features and the target variable by adjusting its parameters to minimize the error or loss.
+    - Validation data: This dataset is used to fine-tune the model’s hyperparameters (like learning rate, number of layers, etc.) and assess its performance while training. It helps prevent the model from overfitting the training data.
+    - Test data: This dataset evaluates the final model's performance after training and validation are complete. It provides an unbiased estimate of how the model will perform on new, unseen data.
+4) Now navigate to **create impulse**, you can play with the options here but we chose for the following impulse (don't forget to press save!)
+   
+   ![image](https://github.com/user-attachments/assets/52ae42f6-1292-48fc-8ddc-b1ba327a93bb)
+
+5) Next, go to the **image** section and press "save parameters". Nox press "generate parameters" and wait till the feature explorer is shown. Like this (the part with the graph)
+   ![image](https://github.com/user-attachments/assets/d0fde320-7646-4a9f-9381-a7e095e55af1)
+
+6) Following that, press "transfer learning" in our case. You have a lot of options which you can play with to finetune and experiment. We recommend to start by keeping the default settings and press the "save & train" button. Now wait till you get the model result (this can take a bit of time, depending on the amount of images and epochs)
+   ![image](https://github.com/user-attachments/assets/eb8357e3-7369-42f5-80bc-cfd21bff3d9b)
+
+The left top to right bottom diagonal (green squares) is very important in this truth table. These are the correctly classified images by the model (on validation data). For this project the ones that are within 3 squares (right and left) of the correct prediction, are also considered "good" (146/154 so 95%).
+
+7) Now go to **Retrain model** and press "train model". Wait till it's done (takes a bit longer then the previous step). Look for green text saying it is the done in the mini terminal at the right top.
+8) Now you have access to **Live classification** and **Model testing**. Model testing will give you an overview about all test data, which you can have a look at. In classification you can test on each individual image and most importantly test on data collected with your embedded device (with camera of course).
+   
+**--!EXPLANATION ON HOW TO CONNECT TO DEVICE!--**
+   
+
+      
+
+### Deployment
+
+### Dashboard
 
 
 
