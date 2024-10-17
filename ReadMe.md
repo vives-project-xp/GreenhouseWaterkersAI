@@ -4,9 +4,10 @@
 1. The project
 2. Materials and software
 3. Proces
-4. Guide
-5. Difficulties
-6. Final product
+4. Architecture
+5. Guide
+6. Difficulties
+7. Final product
 
 ## The project
 The watercress AI project has the main goal of creating a working AI model which is then deployed on an embedded device. The challanges in this project lay in the gathering of our own data to create a labeled dataset. Following that, the model has to be chosen and trained to garantee the best possible result. Ultimately the model has to run on an embedded device. The project is deemed succesfull when we can make accurate prediction using a camera on the chosen embedded device and then display this in a way (display).
@@ -40,6 +41,14 @@ As we now gained a sufficient amount of data we first labeled everything to then
 The accuracy on itself was already good, but for this project we didn't mind predictions that we're one to three days away from the actual age. With this in mind our accuracy is more like 95%.
 
 We then proceeded to get the new model on the raspberry and test it. While working on a script to test it without edge impulse we also worked on our documentation. 
+
+## Architecture
+Below you find the [architecture document](./ArchitectureDocuments/ArchitectureDoc.pdf) with some explanation.
+![image](https://github.com/user-attachments/assets/0e066311-f14f-4c5c-9857-6393a01e0a65)
+### Software
+To train our model we use different libraries, software and hardware devices. To capture images from the watercress we used the camera of our phone and saved them on harddrive. Later we also used Labelbox to label the images (and save them). This is how we created our dataset, which exists only of folders with the days. This because edge impulse can automatically split between validation, training and test data.
+
+### Hardware
 
 
 ## Guide
