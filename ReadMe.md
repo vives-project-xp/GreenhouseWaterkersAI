@@ -129,6 +129,7 @@ STILL WORKING ON THE REST
 
 
 ## Difficulties
+1) We experienced how important the right amount of data is. Early in the project we had few images which made the model really bad of course. Later we had a lot of images but for some classes (days) we had way more or less images then for others. This meant the model overfit on those with more images. By balancing this out we created a fairly good model rather quick.
 
 ## Final Product
 
