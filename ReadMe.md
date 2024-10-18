@@ -89,9 +89,43 @@ To deploy the model on your device, there are 2 ways. The first is with the SDK'
 ![image](./ArchitectureDocuments/Deploy.png)
 After having selected the right deployment (in our case, Linux AARCH64), you need to run `edge-impulse-linux-runner` on your device, and it should connect if you set it up right.
 The second way involves placing the downloaded model file onto the device itself. This can be done through various means; we used WinSCP to place the file onto our Raspberry Pi 5. After that, you can use the model freely in your project.
+
 ### Dashboard
+To proof our model works, we want to create a very simple dashboard that shows the prediction (from our model) when an image is pressed. For this we will use a virtual environment.
+1) Get the .eim file you build (in deployment) and place it in your froject folder.
+2) We use windows, but it's recommended to use Linux (WSL) for this part. Follow the [Installation guide ](https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview) if you don't have it installed already.
+3) With your WSL(ubuntu) terminal opened we will first create a virtual environment.
+Ensure you have installed Python version 3.x. If this is not the case, run:
+```
+python3 --version
+```
+Ensure you have installed Python version 3.x. Check this by running the following command:
+```
+python3 --version
+```
 
+If you have not installed it yet, you can do so by running:
+```
+sudo apt update
+sudo apt install python3 python3-pip
+```
 
+Let's create the virtual environment now!
+```
+python3 -m venv envname
+```
+
+Activate the environment like this:
+```
+source myenv/bin/activate
+```
+
+Now you can install the packages.
+```
+pip install streamlit edge_impulse_linux
+```
+
+STILL WORKING ON THE REST
 
 
 ## Difficulties
