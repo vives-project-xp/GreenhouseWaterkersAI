@@ -40,7 +40,7 @@ if export_task.errors:
 export_json = export_task.result
 # print("Result: ", export_json)
 # save the JSON to a file
-with open('./output.json', 'w') as json_file:
+with open('./output_labelbox.json', 'w') as json_file:
     json.dump(export_json, json_file, indent=4)
 
 # Create a directory to save the images
@@ -110,7 +110,7 @@ for item in export_json:
     # except Exception as e:
     #     print(f"Error downloading {external_id}: {e}")
 
-with open('./watercress_images/annotations.coco.json', 'w') as coco_file:
+with open('./watercress_images/labels.coco.json', 'w') as coco_file:
     json.dump(coco_format, coco_file, indent=4)
 
-print("COCO JSON file saved as coco_annotations.json")
+print("COCO JSON file saved as labels.coco.json")
