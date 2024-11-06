@@ -57,6 +57,20 @@ There are multiple options to go on and deploy the model. We can transfer the fi
 ## Guide
 This section describes the exact steps to take to make this project yourself!
 ### Dataset creation
+To create a dataset of watercress you need to plant the watercress. We recommend planting the watercress in a small container and label the container with the day you planted the watercress. This way, you can easily keep track of the age of the watercress. We used regular soil and watered the watercress every day by spraying water on it, make sure the soil is always moist. The watercress needs to be placed in a spot where there is indirect sunlight and a temperature between 10 and 20°C.
+After planting the watercress, you need to take pictures of the watercress every day. Take pictures of the watercress from different angles and distances. We recommend taking pictures of the watercress from the top, side, and bottom. This way, you can easily see the growth of the watercress. Try to take the pictures at the same time every day. Save the pictures in a folder with the day you took the pictures as the name of the folder. For example, if you took pictures of the watercress on the first day, save the pictures in a folder called "day 1". We took pictures of the watercress with different phones and saved the pictures on a hard drive. We took pictures of the watercress every day for 20 days. Now you have a dataset of watercress that you can use to train your model.
+
+### Labeling | [Labelbox](https://labelbox.com/)
+After creating a dataset of watercress, you need to label the images. We used Labelbox to label the images.
+1) Go to the Labelbox website (https://labelbox.com/) and create an account. This will lead you to the dashboard screen where you can create a new project. 
+2) After creating a new project, you will need to add data to the project. To do this go to the catalog tab and click on the "New" button. This will add a new dataset to the project.
+3) Go to annotate, click the "Add data" button, and add the dataset of the watercress to the project. After that you will have to set up the ontology for this project. The ontology is a list of labels that you can use to label the images. We used segmentation for labeling the days from "day 0" to "day 20", 
+
+
+ After setting up the ontology, you can start labeling the images. To label an image, click on the image and select the label that corresponds to the age of the watercress. After labeling all the images, you can export the labeled images to a folder on your hard drive. This folder will contain the labeled images that you can use to train your model.
+Set up ontology and labeling experience
+
+
 
 ### Edge Impulse | [Edge Impulse](https://studio.edgeimpulse.com/) 
 1) After signing up, you can create and name a project, which will lead you to the dashboard screen. Scroll down till you find the area about **project info** on the right side. For this project, set the labeling method to "one label per data item." This setting is used for classification. The other one is used for object detection, which we don't need for this specific project.
