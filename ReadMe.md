@@ -20,11 +20,11 @@ Here you find a small list of the main goals we set for ourselves with deadlines
 - 17/10 Full dataset from day 1 till day 20
 - 24/10 Trained model 
 - 07/11 Dashboard to display model
-- 22/11 Deployment on edge devices (perhabs with casing)
+- 22/11 Deployment on edge devices (perhaps with casing)
 
 ## Materials and software
 
-## Proces
+## Process
 In this section, you can find a step-by-step analysis of the steps we took to get to the final project.
 ### Week 1
 When brainstorming, we quickly had a plan. The main thing we thought about was the software we would want to use. As some of us had a bit of experience with Kerras and TensorFlow, this was our first option. Another option was using pytorch as it should become the standard for AI projects in the foreseen future. Lastly, we talked about the option of using Edge Impulse (https://edgeimpulse.com/). It's an online webpage that specializes in neural networking solutions. At first we chose this option as it's a faster way to create and train models and analyze all of your data. It also has some built-in tools to split data (if you've not done so). Of course we need to deploy our model, which we chose the Raspberry Pi 5 for as it has a lot of calculation power to run a model. We also ended up ordering a camera and display for the Raspberry to be able to make pictures and display the age on the display.
