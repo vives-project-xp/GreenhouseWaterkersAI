@@ -42,6 +42,12 @@ The accuracy on itself was already good, but for this project we didn't mind pre
 
 We then proceeded to get the new model on the Raspberry and test it. While working on a script to test it without edge impulse, we also worked on our documentation. 
 
+### Week 5
+
+
+### Week 6
+We continued by trying to get a working dashboard using the [streamlit library] (https://docs.streamlit.io/). We ran into a lot of issues when trying to get this to work. We tried different methods like using the edge impulse API as well as building the model and trying to run the code that way. Resolving one error kept leading to a different error.
+
 ## Architecture
 Below you find the [architecture document] (./ArchitectureDocuments/ArchitectureDoc.pdf) with some explanation.
 ![image](https://github.com/user-attachments/assets/0e066311-f14f-4c5c-9857-6393a01e0a65)
