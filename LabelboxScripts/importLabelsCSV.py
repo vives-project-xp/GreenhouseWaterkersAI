@@ -8,7 +8,7 @@ output_dir = "./watercress_images"
 os.makedirs(output_dir, exist_ok=True)
 
 # Laad het JSON-bestand met data van de Labelbox-export
-with open('result.txt', 'r') as file:
+with open('./output_labelbox.json', 'r') as file:
     data = json.load(file)
 
 # CSV-bestand aanmaken om de koppelingen op te slaan

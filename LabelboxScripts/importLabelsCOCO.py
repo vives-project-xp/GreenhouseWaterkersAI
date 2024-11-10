@@ -11,7 +11,7 @@ API_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbTIzMDl0bTAwNHU0
 client = lb.Client(API_KEY)
 
 # Insert the project id
-PROJECT_ID = 'cm23kaijl09t107ymbvqjgqx4'
+PROJECT_ID = 'cm2ogxkej00pz07xyagvu7u0n'
 project = client.get_project(PROJECT_ID)
 
 # Export params to include/export certain fields
@@ -36,15 +36,22 @@ export_task.wait_until_done()
 
 if export_task.errors:
     print(export_task.errors)
+    
+# Find the repo root, assuming script is inside the repo
+repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+
+# Ensure JSON and image paths are relative to repo root
+json_file_path = os.path.join(repo_root, 'LabelboxScripts', 'output_labelbox.json')
+output_dir = os.path.join(repo_root, "watercress_images")
 
 export_json = export_task.result
 # print("Result: ", export_json)
 # save the JSON to a file
-with open('./output_labelbox.json', 'w') as json_file:
+with open(json_file_path, 'w') as json_file:
     json.dump(export_json, json_file, indent=4)
 
 # Create a directory to save the images
-output_dir = "./watercress_images"
+output_dir = os.path.join(repo_root, 'LabelboxScripts', 'watercress_images')
 os.makedirs(output_dir, exist_ok=True)
 
 # Prpare the COCO dataset structure
@@ -69,7 +76,6 @@ annotation_id_counter = 0
 # process each item in the JSON data to create the COCO dataset
 for item in export_json:
     data_row = item.get('data_row', {})
-    print(f"The data row is: {data_row}")
     image_name = data_row.get('external_id', 'N/A')
     media_attributes = item.get('media_attributes', {})
     image_width = media_attributes.get('width', 0)
@@ -110,7 +116,9 @@ for item in export_json:
     # except Exception as e:
     #     print(f"Error downloading {external_id}: {e}")
 
-with open('./watercress_images/labels.coco.json', 'w') as coco_file:
-    json.dump(coco_format, coco_file, indent=4)
+# Save the COCO dataset to a JSON file
+coco_json_path = os.path.join(repo_root, 'LabelboxScripts', 'watercress_images', 'labels.coco.json')
+with open(coco_json_path, 'w') as coco_json_file:
+    json.dump(coco_format, coco_json_file, indent=4)
 
 print("COCO JSON file saved as labels.coco.json")
