@@ -108,12 +108,14 @@ for item in export_json:
                     "category_id": 1,  # Assuming BoundingBox category ID is 1
                     "bbox": [x_min, y_min, bbox_width, bbox_height],
                 })
-    # # Download the image
-    # try:
-    #     urllib.request.urlretrieve(row_data_url, output_path)
-    #     print(f"Image saved as: {output_path}")
-    # except Exception as e:
-    #     print(f"Error downloading {external_id}: {e}")
+    # Download the image
+    row_data_url = data_row.get('row_data', 'N/A')
+    output_path = os.path.join(output_dir, image_name)
+    try:
+        urllib.request.urlretrieve(row_data_url, output_path)
+        print(f"Image saved as: {output_path}")
+    except Exception as e:
+        print(f"Error downloading {image_name}: {e}")
 
 # Save the COCO dataset to a JSON file
 coco_json_path = os.path.join(output_dir, 'labels.coco.json')
