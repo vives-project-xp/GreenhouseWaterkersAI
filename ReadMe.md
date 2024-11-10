@@ -3,7 +3,7 @@
 ## Overview
 1. The project
 2. Materials and software
-3. Proces
+3. Process
 4. Architecture
 5. Guide
 6. Difficulties
@@ -43,8 +43,9 @@ The accuracy on itself was already good, but for this project we didn't mind pre
 We then proceeded to get the new model on the Raspberry and test it. While working on a script to test it without edge impulse, we also worked on our documentation. 
 
 ### Week 5
+We tried to make a link between labelbox and edge impulse by writing a script that would download the images from labelbox with the bounding boxes and all the information we needed to upload them to edge impulse. We ran into some issues with the script, but we managed to get it to work. 
 
-
+We adjusted the deployment of the model on the Raspberry Pi 5 and tested it. So that a picture could be taken and the model would predict the age of the watercress. The prediction was then displayed on the LED matrix of the Sense Hat. 
 ### Week 6
 We continued by trying to get a working dashboard using the [streamlit library] (https://docs.streamlit.io/). We ran into a lot of issues when trying to get this to work. We tried different methods like using the edge impulse API as well as building the model and trying to run the code that way. Resolving one error kept leading to a different error.
 
@@ -70,13 +71,10 @@ After planting the watercress, you need to take pictures of the watercress every
 After creating a dataset of watercress, you need to label the images. We used Labelbox to label the images.
 1) Go to the Labelbox website (https://labelbox.com/) and create an account. This will lead you to the dashboard screen where you can create a new project. 
 2) After creating a new project, you will need to add data to the project. To do this go to the catalog tab and click on the "New" button. This will add a new dataset to the project.
-3) Go to annotate, click the "Add data" button, and add the dataset of the watercress to the project. After that you will have to set up the ontology for this project. The ontology is a list of labels that you can use to label the images. We used segmentation for labeling the days from "day 0" to "day 20", 
-
-
- After setting up the ontology, you can start labeling the images. To label an image, click on the image and select the label that corresponds to the age of the watercress. After labeling all the images, you can export the labeled images to a folder on your hard drive. This folder will contain the labeled images that you can use to train your model.
-Set up ontology and labeling experience
-
-
+3) Go to annotate, click the "Add data" button, and add the dataset of the watercress to the project. After that you will have to set up the ontology for this project. The ontology is a list of labels that you can use to label the images. We used bounding boxes for labeling the days from "day 0" to "day 20" because edge impulse requires bounding boxes for object detection.
+4) After setting up the ontology, you can start labeling the images. To label an image, click on the image and draw a bounding box around the whole picture.
+5) After labeling all the images, you need to review all the labels to make sure they are correct. You can do this by clicking on the "Review" tab and reviewing the labels one by one. If you find any mistakes, you can correct them by clicking on the label and editing it.
+6) After reviewing all the labels, you can export the labels by clicking on the "Export" button on the "Done" tab. This will export the labels in a JSON format. You can use this JSON file to write a python script that downloads the images with the bounding boxes and all the information you need to upload them to edge impulse. You can download the images into one folder so it's easier to upload them to edge impulse.
 
 ### Edge Impulse | [Edge Impulse](https://studio.edgeimpulse.com/) 
 1) After signing up, you can create and name a project, which will lead you to the dashboard screen. Scroll down till you find the area about **project info** on the right side. For this project, set the labeling method to "one label per data item." This setting is used for classification. The other one is used for object detection, which we don't need for this specific project.
