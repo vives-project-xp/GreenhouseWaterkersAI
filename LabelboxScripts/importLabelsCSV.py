@@ -3,16 +3,22 @@ import urllib.request
 import json
 import csv
 
+# Find the repo root, assuming script is inside the repo
+repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+
+# Ensure JSON path is relative to repo root
+json_file_path = os.path.join(repo_root, 'LabelboxScripts', 'output_labelbox.json')
+
 # Map waar je de afbeeldingen wilt opslaan
-output_dir = "./watercress_images"
+output_dir = os.path.join(repo_root, 'LabelboxScripts', 'watercress_images1')
 os.makedirs(output_dir, exist_ok=True)
 
 # Laad het JSON-bestand met data van de Labelbox-export
-with open('./output_labelbox.json', 'r') as file:
+with open(json_file_path, 'r') as file:
     data = json.load(file)
 
 # CSV-bestand aanmaken om de koppelingen op te slaan
-csv_file_path = "imageAnnotations.csv"
+csv_file_path = os.path.join(output_dir, 'imageAnnotations.csv')
 with open(csv_file_path, mode='w', newline='') as csv_file:
     csv_writer = csv.writer(csv_file, delimiter=';')
     # Schrijf de headers naar het CSV-bestand
@@ -36,7 +42,7 @@ for item in data:
     #     print(f"Fout bij het downloaden van {external_id}: {e}")
 
     # Verwerk de annotaties die bij deze afbeelding horen
-    annotations = item.get('projects', {}).get('cm23kaijl09t107ymbvqjgqx4', {}).get('labels', [])
+    annotations = item.get('projects', {}).get('cm2ogxkej00pz07xyagvu7u0n', {}).get('labels', [])
     for label in annotations:
         for obj in label.get('annotations', {}).get('objects', []):
             object_name = obj.get('name', 'N/A')

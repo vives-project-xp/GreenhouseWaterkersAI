@@ -42,7 +42,7 @@ repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 
 # Ensure JSON and image paths are relative to repo root
 json_file_path = os.path.join(repo_root, 'LabelboxScripts', 'output_labelbox.json')
-output_dir = os.path.join(repo_root, "watercress_images")
+output_dir = os.path.join(repo_root, 'LabelboxScripts', 'watercress_images')
 
 export_json = export_task.result
 # print("Result: ", export_json)
@@ -51,7 +51,6 @@ with open(json_file_path, 'w') as json_file:
     json.dump(export_json, json_file, indent=4)
 
 # Create a directory to save the images
-output_dir = os.path.join(repo_root, 'LabelboxScripts', 'watercress_images')
 os.makedirs(output_dir, exist_ok=True)
 
 # Prpare the COCO dataset structure
@@ -117,7 +116,7 @@ for item in export_json:
     #     print(f"Error downloading {external_id}: {e}")
 
 # Save the COCO dataset to a JSON file
-coco_json_path = os.path.join(repo_root, 'LabelboxScripts', 'watercress_images', 'labels.coco.json')
+coco_json_path = os.path.join(output_dir, 'labels.coco.json')
 with open(coco_json_path, 'w') as coco_json_file:
     json.dump(coco_format, coco_json_file, indent=4)
 
