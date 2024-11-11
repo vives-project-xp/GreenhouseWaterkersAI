@@ -64,8 +64,23 @@ There are multiple options to go on and deploy the model. We can transfer the fi
 ## Guide
 This section describes the exact steps to take to make this project yourself!
 ### Dataset creation
-To create a dataset of watercress you need to plant the watercress. We recommend planting the watercress in a small container and label the container with the day you planted the watercress. This way, you can easily keep track of the age of the watercress. We used regular soil and watered the watercress every day by spraying water on it, make sure the soil is always moist. The watercress needs to be placed in a spot where there is indirect sunlight and a temperature between 10 and 20°C.
-After planting the watercress, you need to take pictures of the watercress every day. Take pictures of the watercress from different angles and distances. We recommend taking pictures of the watercress from the top, side, and bottom. This way, you can easily see the growth of the watercress. Try to take the pictures at the same time every day. Save the pictures in a folder with the day you took the pictures as the name of the folder. For example, if you took pictures of the watercress on the first day, save the pictures in a folder called "day 1". We took pictures of the watercress with different phones and saved the pictures on a hard drive. We took pictures of the watercress every day for 20 days. Now you have a dataset of watercress that you can use to train your model.
+To build a dataset for watercress growth, you'll need to start by planting the watercress! Here’s a step-by-step guide to set up your experiment and capture high-quality data:
+1) Planting the watercress
+   - **Materials**: Watercress seeds, a small container, soil, water, and a spray bottle.
+   - **Planting**: Fill the container with soil and sprinkle the seeds on top. Cover the seeds with a thin layer of soil and mist them with water. Keep the soil moist by misting it daily.
+   - **Light & Temperature**: Place the container in indirect sunlight at a temperature between 10-20°C.
+2) Capturing the data
+    - **Materials**: A camera (phone or camera), a tripod, and a notebook.
+    - **Setup**: Place the camera on a tripod to ensure consistent framing and lighting conditions. Position the camera so that the watercress is in the center of the frame. Take pictures from multiple angles to capture the growth of the watercress.
+    - **Capture**: Take pictures of the watercress every day at the same time to ensure consistency.
+    - **Notes**: Keep a notebook to record the date and time of each picture to track the growth of the watercress.
+3) Data organization
+    - **Folders**: Create a folder for each day of the experiment (e.g., day 0, day 1, day 2, etc.). Save the images from each day in the corresponding folder.
+    - **Naming**: Name the images with a unique identifier to track the growth of the watercress (e.g., day0_001.jpg, day1_001.jpg, etc.).
+4) Duration
+    - **Timeline**: Capture images of the watercress every day for 20 days to track its growth over time.
+
+By following these steps, you can create a dataset of watercress growth that can be used to train a machine learning model to predict the age of the watercress based on its appearance.
 
 ### Labeling | [Labelbox](https://labelbox.com/)
 After creating a dataset of watercress, you need to label the images. We used Labelbox to label the images.
