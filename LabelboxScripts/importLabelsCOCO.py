@@ -53,7 +53,6 @@ with open(json_file_path, 'w') as json_file:
 # Create a directory to save the images
 os.makedirs(output_dir, exist_ok=True)
 
-# Prpare the COCO dataset structure
 coco_format = {
     "info": {
         "description": "Labelbox Export",
@@ -62,18 +61,19 @@ coco_format = {
         "contributor": "Labelbox",
         "date_created": time.strftime("%Y-%m-%d %H:%M:%S")
     },
-    "categories": [
-        {"id": 1, "name": "BoundingBox"},
-    ],
+    "categories": [],
     "images": [],
     "annotations": []
 }
 
 image_id_counter = 0
-annotation_id_counter = 0
+existing_categories = set()
+category_id_map = {}
 
 # process each item in the JSON data to create the COCO dataset
 for item in export_json:
+
+    # Get the image data from the JSON item
     data_row = item.get('data_row', {})
     image_name = data_row.get('external_id', 'N/A')
     media_attributes = item.get('media_attributes', {})
@@ -89,33 +89,61 @@ for item in export_json:
         "height": image_height
     })
 
-    # Process the labelbox annotations for this image
+    # Process the categories
+    label = item.get('projects', {}).get(PROJECT_ID, {}).get('labels', [])
+    for labels in label:
+        category = labels.get('annotations', {}).get('classifications', [])
+        for categorys in category:
+            radio_answer = categorys.get('radio_answer', {})
+            category_name = radio_answer.get('value', 'N/A')
+            if category_name not in existing_categories:
+                # Extract the number from the category_name (e.g., "day_0" -> 0)
+                category_id = int(category_name.split('_')[1])
+                existing_categories.add(category_name)
+                category_id_map[category_name] = category_id
+                coco_format["categories"].append({
+                    "id": category_id,
+                    "name": category_name,
+                })
+
+    # Process the category annotations for each image
     annotations = item.get('projects', {}).get(PROJECT_ID, {}).get('labels', [])
     for label in annotations:
-        for object in label.get('annotations', {}).get('objects', []):
-            if object.get('annotation_kind', 'N/A') == "ImageBoundingBox":
-                annotation_id_counter += 1
-                bounding_box = object.get('bounding_box', {})
-                x_min = bounding_box.get('left', 0)
-                y_min = bounding_box.get('top', 0)
-                bbox_width = bounding_box.get('width', 0)
-                bbox_height = bounding_box.get('height', 0)
+        for category in label.get('annotations', {}).get('classifications', []):
+            radio_answer = category.get('radio_answer', {})
+            category_name = radio_answer.get('value', 'N/A')
+            category_id = category_id_map.get(category_name, None)
+            if category_id is None:
+                print(f"Category ID not found for: {category_name}")
+            else:
+                print(f"Category Name: {category_name}, Category ID: {category_id}")
+                
 
-                # Add the annotation data to the COCO dataset
-                coco_format["annotations"].append({
-                    "id": annotation_id_counter,
-                    "image_id": image_id_counter,
-                    "category_id": 1,  # Assuming BoundingBox category ID is 1
-                    "bbox": [x_min, y_min, bbox_width, bbox_height],
-                })
-    # Download the image
-    row_data_url = data_row.get('row_data', 'N/A')
-    output_path = os.path.join(output_dir, image_name)
-    try:
-        urllib.request.urlretrieve(row_data_url, output_path)
-        print(f"Image saved as: {output_path}")
-    except Exception as e:
-        print(f"Error downloading {image_name}: {e}")
+    # Process the bounding box annotations for each image
+    for label in annotations:
+        for object in label.get('annotations', {}).get('objects', []):
+            bounding_box = object.get('bounding_box', {})
+            x_min = bounding_box.get('left', 0)
+            y_min = bounding_box.get('top', 0)
+            bbox_width = bounding_box.get('width', 0)
+            bbox_height = bounding_box.get('height', 0)
+            
+            # Add the annotation data to the COCO dataset
+            coco_format["annotations"].append({
+                "image_id": image_id_counter,
+                "category_id": category_id,
+                "bbox": [x_min, y_min, bbox_width, bbox_height],
+            })
+            
+
+            # Download the image
+            output_path = os.path.join(output_dir, image_name)
+            row_data_url = data_row.get('row_data', 'N/A')
+            try:
+                urllib.request.urlretrieve(row_data_url, output_path)
+                print(f"Image saved as: {output_path}")
+            except Exception as e:
+                print(f"Error downloading {image_name}: {e}")
 
 # Save the COCO dataset to a JSON file
 coco_json_path = os.path.join(output_dir, 'labels.coco.json')
