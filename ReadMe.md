@@ -162,7 +162,7 @@ Now you can install the packages.
 ```
 pip install streamlit tensorflow
 ```
-4) Download [this](Python scripts/dashboard.py). Replace the model name with the name and path of your model.
+4) Download [this](https://github.com/vives-project-xp/GreenhouseWaterkersAI/blob/1a93c32a799fbc58e3fdac7e36b477d6b3cd9dfb/Python%20scripts/dashboard.py). Replace the model name with the name and path of your model.
 5) To run, type `streamlit run {fileName}`
 
 STILL WORKING ON THE REST
