@@ -51,7 +51,8 @@ We adjusted the deployment of the model on the Raspberry Pi 5 and tested it. So 
 We continued by trying to get a working dashboard using the [streamlit library] (https://docs.streamlit.io/). We ran into a lot of issues when trying to get this to work. We tried different methods like using the edge impulse API as well as building the model and trying to run the code that way. Resolving one error kept leading to a different error.
 
 ### Week 7
-This week we saw a breakthrough in the dashboard, as we got a working dashboard which makes predictions based on an uploaded image. We build a different model then the weeks before and with some changes to the code, we created a succesfull dashboard. With that same model we created a script to analyse the model and images. We got a graph for the amount of images in each class, a confusion matrix, etc.. 
+This week we saw a breakthrough in the dashboard, as we got a working dashboard which makes predictions based on an uploaded image. We build a different model then the weeks before and with some changes to the code, we created a succesfull dashboard. With that same model we created a script to analyse the model and images. We got a graph for the amount of images in each class, a confusion matrix, etc.. We also added some more images (for the day 19 and 20 classes, because they were not represented enough) and raised our accuracy to 88%. ![image](https://github.com/user-attachments/assets/35a7e844-a36d-441a-9a4a-59232430ec8b)
+
 
 ## Architecture
 Below you find the [architecture document] (./ArchitectureDocuments/ArchitectureDoc.pdf) with some explanation.
