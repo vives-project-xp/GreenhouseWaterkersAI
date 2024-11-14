@@ -43,11 +43,15 @@ The accuracy on itself was already good, but for this project we didn't mind pre
 We then proceeded to get the new model on the Raspberry and test it. While working on a script to test it without edge impulse, we also worked on our documentation. 
 
 ### Week 5
-We tried to make a link between labelbox and edge impulse by writing a script that would download the images from labelbox with the bounding boxes and all the information we needed to upload them to edge impulse. First tried a script that downloaded the images and put the info of the images into a CSV file. But that didn't seem to work quite well with edge impulse. Then we tried an other script that would download the images and put the info of the images into a COCO dataset format file. We had to tweak the script a bit to get it to work with edge impulse but in the end, we got it to work. You can find the scripts in [this folder](./LabelboxScripts/).
+We tried to make a link between labelbox and edge impulse by writing a script that would download the images from labelbox with the bounding boxes and all the information we needed to upload them to edge impulse. First we tried a script that downloaded the images and put the info of the images into a CSV file. But that didn't seem to work quite well with edge impulse. Then we tried an other script that would download the images and put the info of the images into a COCO dataset format file. We had to tweak the script a bit to get it to work with edge impulse but in the end, we got it to work. You can find the scripts in [this folder](./LabelboxScripts/).
 
 We adjusted the deployment of the model on the Raspberry Pi 5 and tested it. So that a picture could be taken and the model would predict the age of the watercress. The prediction was then displayed on the LED matrix of the Sense Hat. 
+
 ### Week 6
 We continued by trying to get a working dashboard using the [streamlit library] (https://docs.streamlit.io/). We ran into a lot of issues when trying to get this to work. We tried different methods like using the edge impulse API as well as building the model and trying to run the code that way. Resolving one error kept leading to a different error.
+
+### Week 7
+This week we saw a breakthrough in the dashboard, as we got a working dashboard which makes predictions based on an uploaded image. We build a different model then the weeks before and with some changes to the code, we created a succesfull dashboard. With that same model we created a script to analyse the model and images. We got a graph for the amount of images in each class, a confusion matrix, etc.. 
 
 ## Architecture
 Below you find the [architecture document] (./ArchitectureDocuments/ArchitectureDoc.pdf) with some explanation.
