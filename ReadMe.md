@@ -55,7 +55,7 @@ This week we saw a breakthrough in the dashboard, as we got a working dashboard 
 
 
 ## Architecture
-Below you find the [architecture document](./ArchitectureDocuments/ArchitectureDoc.pdf) with some explanation.
+Below you find the [architecture document] (./ArchitectureDocuments/ArchitectureDoc.pdf) with some explanation.
 ![image](https://github.com/user-attachments/assets/0e066311-f14f-4c5c-9857-6393a01e0a65)
 ### Software
 To train our model, we use different libraries, software, and hardware devices. To capture images from the watercress, we used the camera of our phone and saved them on a hard drive. Later, we also used Labelbox to label the images (and save them). This is how we created our dataset, which exists only of folders with the days. This is because edge impulse can automatically split between validation, training, and test data. To evaluate, display, and proof our model, we will create a small and basic dashboard using streamlit (which is a Python library used for dashboard representations).
@@ -129,8 +129,8 @@ After having selected the right deployment (in our case, Linux AARCH64), you nee
 The second way involves placing the downloaded model file onto the device itself. This can be done through various means; we used WinSCP to place the file onto our Raspberry Pi 5. After that, you can use the model freely in your project.
 
 ### Dashboard
-To proof our model works, we want to create a very simple dashboard that shows the prediction (from our model) when an image is pressed. For this we will use a virtual environment.
-1) Get the .eim file you build (in deployment) and place it in your froject folder.
+To prove our model works, we want to create a very simple dashboard that shows the prediction (from our model) when an image is pressed. For this we will use a virtual environment.
+1) Get the .lite file from the dashboard. Place it in your project folder
 2) We use windows, but it's recommended to use Linux (WSL) for this part. Follow the [Installation guide ](https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview) if you don't have it installed already.
 3) With your WSL(ubuntu) terminal opened we will first create a virtual environment.
 Ensure you have installed Python version 3.x. If this is not the case, run:
@@ -160,8 +160,10 @@ source myenv/bin/activate
 
 Now you can install the packages.
 ```
-pip install streamlit edge_impulse_linux
+pip install streamlit tensorflow
 ```
+4) Download [this](). Replace the model name with the name and path of your model.
+5) To run, type `streamlit run {fileName}`
 
 STILL WORKING ON THE REST
 
