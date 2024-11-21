@@ -1,0 +1,13 @@
+tensorflow
+keras
+torch
+labelbox
+pycocotools
+opencv-python
+Pillow
+matplotlib
+seaborn
+numpy
+pandas
+scikit-learn
+streamlit

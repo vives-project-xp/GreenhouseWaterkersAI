@@ -1,0 +1,8 @@
+RPi.GPIO
+sense-hat
+picamera
+opencv-python
+Pillow
+numpy
+requests
+edge-impulse-cli
