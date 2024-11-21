@@ -5,7 +5,7 @@
 2. Materials and software
 3. Process
 4. Architecture
-5. Guide
+5. [Guide](./TechnicalDoc/guide.md)
 6. Difficulties
 7. Final product
 
