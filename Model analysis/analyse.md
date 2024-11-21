@@ -50,3 +50,14 @@ Akida TL
 Regressie
 
 ![alt text](image-6.png)
+
+
+
+
+FINAL CHOICE: 
+Transfer learning MobileNetV2(96x96 0.35)
+![alt text](image-9.png)
+
+![alt text](image-7.png)
+
+![alt text](image-8.png)
