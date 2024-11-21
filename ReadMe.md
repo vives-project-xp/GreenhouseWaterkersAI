@@ -174,12 +174,22 @@ STILL WORKING ON THE REST
 ## Libraries
 After cloning the repository you can run this command to download all required libraries for model training (in for example vs code)
 ```
-pip install -r requirements_training.txt
+pip install -r Requirements/requirements_training.txt
+```
+
+or run 
+```
+pip install tensorflow keras torch labelbox pycocotools opencv-python Pillow matplotlib seaborn numpy pandas scikit-learn streamlit
 ```
 
 These libraries should be installed on the raspberry pi to run the model correctly.
 ```
-pip install -r requirements_raspberry.txt
+pip install -r Requirements/requirements_raspberry.txt
+```
+
+or run 
+```
+pip install RPi.GPIO sense-hat picamera opencv-python Pillow numpy requests edge-impulse-cli
 ```
 
 ## Difficulties
