@@ -14,6 +14,12 @@
 | Akida      | Zie beschr|      70.7%       |  62.22%   | 0    | /  | 1ms|
 | Classifica |           |                  |           |      |    |    |
 |------------|-----------|------------------|-----------|------|----|----|
+| Akida      | Zie beschr|       6.8%       |  06.60%   | 0    | /  | 5ms|
+| Transfer L |           |                  |           |      |    |    |
+|------------|-----------|------------------|-----------|------|----|----|
+| Regressie  | Zie beschr|    Loss 10 (mse) |  /        | 112k |700k| 2ms|
+|            |           |                  |           |      |    |    |
+|------------|-----------|------------------|-----------|------|----|----|
 
 
 
@@ -36,3 +42,11 @@ Classification
 Akida classification
 
 ![alt text](image-4.png)
+
+Akida TL
+
+![alt text](image-5.png)
+
+Regressie
+
+![alt text](image-6.png)
