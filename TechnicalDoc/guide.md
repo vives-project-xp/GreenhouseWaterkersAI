@@ -85,7 +85,7 @@ python3 -m venv envname
 
 Activate the environment like this:
 ```
-source myenv/bin/activate
+source envname/bin/activate
 ```
 
 Now you can install the packages.
