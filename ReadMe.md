@@ -15,12 +15,13 @@ We use watercress as it grows quickly, but it should be possible to use the same
 
 ### Goals
 Here you find a small list of the main goals we set for ourselves with deadlines that we would like to hit.
-- 26/09 Planting the watercress, Order materials
-- 03/10 Testing with sample data (as watercress was not visible on pictures yet)
-- 17/10 Full dataset from day 1 till day 20
-- 24/10 Trained model 
-- 07/11 Dashboard to display model
-- 22/11 Deployment on edge devices (perhaps with casing)
+- 26/09 Planting the watercress, Order materials [x]
+- 03/10 Testing with sample data (as watercress was not visible on pictures yet) [x]
+- 17/10 Full dataset from day 1 till day 20 [x]
+- 24/10 Trained model [x]
+- 07/11 Dashboard to display model [x]
+- 22/11 Deployment on edge devices (perhaps with casing) [ ] note: to do stand alone deployment, and casing.
+- 05/12 Stand alone deployment, and casing [ ]
 
 ## Materials and software
 
@@ -167,6 +168,17 @@ pip install streamlit tensorflow
 
 STILL WORKING ON THE REST
 
+## Libraries
+After cloning the repository you can run this command to download all required libraries for model training (in for example vs code)
+```
+pip install -r requirements_training.txt
+```
+
+These libraries should be installed on the raspberry pi to run the model correctly.
+```
+pip install -r requirements_raspberry.txt
+
+```
 
 ## Difficulties
 1) We experienced how important the right amount of data is. Early in the project we had few images which made the model really bad of course. Later we had a lot of images but for some classes (days) we had way more or less images then for others. This meant the model overfit on those with more images. By balancing this out we created a fairly good model rather quick.
