@@ -67,10 +67,6 @@ To prove our model works, we want to create a very simple dashboard that shows t
 1) Get the .lite file from the dashboard. Place it in your project folder
 2) We use windows, but it's recommended to use Linux (WSL) for this part. Follow the [Installation guide ](https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview) if you don't have it installed already.
 3) With your WSL(ubuntu) terminal opened we will first create a virtual environment.
-Ensure you have installed Python version 3.x. If this is not the case, run:
-```
-python3 --version
-```
 Ensure you have installed Python version 3.x. Check this by running the following command:
 ```
 python3 --version
