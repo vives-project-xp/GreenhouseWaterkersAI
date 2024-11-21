@@ -43,11 +43,16 @@ The accuracy on itself was already good, but for this project we didn't mind pre
 We then proceeded to get the new model on the Raspberry and test it. While working on a script to test it without edge impulse, we also worked on our documentation. 
 
 ### Week 5
-We tried to make a link between labelbox and edge impulse by writing a script that would download the images from labelbox with the bounding boxes and all the information we needed to upload them to edge impulse. First tried a script that downloaded the images and put the info of the images into a CSV file. But that didn't seem to work quite well with edge impulse. Then we tried an other script that would download the images and put the info of the images into a COCO dataset format file. We had to tweak the script a bit to get it to work with edge impulse but in the end, we got it to work. You can find the scripts in [this folder](./LabelboxScripts/).
+We tried to make a link between labelbox and edge impulse by writing a script that would download the images from labelbox with the bounding boxes and all the information we needed to upload them to edge impulse. First we tried a script that downloaded the images and put the info of the images into a CSV file. But that didn't seem to work quite well with edge impulse. Then we tried an other script that would download the images and put the info of the images into a COCO dataset format file. We had to tweak the script a bit to get it to work with edge impulse but in the end, we got it to work. You can find the scripts in [this folder](./LabelboxScripts/).
 
 We adjusted the deployment of the model on the Raspberry Pi 5 and tested it. So that a picture could be taken and the model would predict the age of the watercress. The prediction was then displayed on the LED matrix of the Sense Hat. 
+
 ### Week 6
 We continued by trying to get a working dashboard using the [streamlit library] (https://docs.streamlit.io/). We ran into a lot of issues when trying to get this to work. We tried different methods like using the edge impulse API as well as building the model and trying to run the code that way. Resolving one error kept leading to a different error.
+
+### Week 7
+This week we saw a breakthrough in the dashboard, as we got a working dashboard which makes predictions based on an uploaded image. We build a different model then the weeks before and with some changes to the code, we created a succesfull dashboard. With that same model we created a script to analyse the model and images. We got a graph for the amount of images in each class, a confusion matrix, etc.. We also added some more images (for the day 19 and 20 classes, because they were not represented enough) and raised our accuracy to 88%. ![image](https://github.com/user-attachments/assets/35a7e844-a36d-441a-9a4a-59232430ec8b)
+
 
 ## Architecture
 Below you find the [architecture document] (./ArchitectureDocuments/ArchitectureDoc.pdf) with some explanation.
@@ -124,8 +129,8 @@ After having selected the right deployment (in our case, Linux AARCH64), you nee
 The second way involves placing the downloaded model file onto the device itself. This can be done through various means; we used WinSCP to place the file onto our Raspberry Pi 5. After that, you can use the model freely in your project.
 
 ### Dashboard
-To proof our model works, we want to create a very simple dashboard that shows the prediction (from our model) when an image is pressed. For this we will use a virtual environment.
-1) Get the .eim file you build (in deployment) and place it in your froject folder.
+To prove our model works, we want to create a very simple dashboard that shows the prediction (from our model) when an image is pressed. For this we will use a virtual environment.
+1) Get the .lite file from the dashboard. Place it in your project folder
 2) We use windows, but it's recommended to use Linux (WSL) for this part. Follow the [Installation guide ](https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview) if you don't have it installed already.
 3) With your WSL(ubuntu) terminal opened we will first create a virtual environment.
 Ensure you have installed Python version 3.x. If this is not the case, run:
@@ -155,8 +160,10 @@ source myenv/bin/activate
 
 Now you can install the packages.
 ```
-pip install streamlit edge_impulse_linux
+pip install streamlit tensorflow
 ```
+4) Download [this](https://github.com/vives-project-xp/GreenhouseWaterkersAI/blob/1a93c32a799fbc58e3fdac7e36b477d6b3cd9dfb/Python%20scripts/dashboard.py). Replace the model name with the name and path of your model.
+5) To run, type `streamlit run {fileName}`
 
 STILL WORKING ON THE REST
 
