@@ -54,6 +54,19 @@ We continued by trying to get a working dashboard using the [streamlit library] 
 This week we saw a breakthrough in the dashboard, as we got a working dashboard which makes predictions based on an uploaded image. We build a different model then the weeks before and with some changes to the code, we created a succesful dashboard. With that same model we created a script to analyse the model and images. We got a graph for the amount of images in each class, a confusion matrix, etc.. We also added some more images (for the day 19 and 20 classes, because they were not represented enough) and raised our accuracy to 88%. 
 ![image](https://github.com/user-attachments/assets/35a7e844-a36d-441a-9a4a-59232430ec8b)
 
+### Week 8
+
+
+### Week 9
+We tried out a rather new function in edge impulse which is called the EON tuner. It compares some random options for your specific data and compares them with eachother. 
+
+![image](https://github.com/user-attachments/assets/f573dfe0-5af0-4539-ac1d-fcfad8a18ad3)
+
+We tried out the "best" model and got a slightly better result then our previous model. 
+
+![image](https://github.com/user-attachments/assets/af6275ba-656e-4e4e-ad9b-b233e60675ab)
+
+
 
 ## Architecture
 Below you find the [architecture document](./ArchitectureDocuments/ArchitectureDoc.pdf) with some explanation.
