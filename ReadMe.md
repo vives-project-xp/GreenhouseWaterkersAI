@@ -66,6 +66,11 @@ We tried out the "best" model and got a slightly better result then our previous
 
 ![image](https://github.com/user-attachments/assets/af6275ba-656e-4e4e-ad9b-b233e60675ab)
 
+And after some more finetuning and testing, the model turned out to have an accuracy of 92.5% (on validation data).
+
+![image](https://github.com/user-attachments/assets/273ca12d-a3b8-4e1a-9eb9-49568c4ceb57)
+
+
 
 
 ## Architecture
