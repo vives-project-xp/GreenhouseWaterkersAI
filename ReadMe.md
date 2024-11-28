@@ -56,7 +56,7 @@ This week we saw a breakthrough in the dashboard, as we got a working dashboard 
 
 
 ## Architecture
-Below you find the [architecture document] (./ArchitectureDocuments/ArchitectureDoc.pdf) with some explanation.
+Below you find the [architecture document](./ArchitectureDocuments/ArchitectureDoc.pdf) with some explanation.
 ![image](https://github.com/user-attachments/assets/0e066311-f14f-4c5c-9857-6393a01e0a65)
 ### Software
 To train our model, we use different libraries, software, and hardware devices. To capture images from the watercress, we used the camera of our phone and saved them on a hard drive. Later, we also used Labelbox to label the images (and save them). This is how we created our dataset, which exists only of folders with the days. This is because edge impulse can automatically split between validation, training, and test data. To evaluate, display, and proof our model, we will create a small and basic dashboard using streamlit (which is a Python library used for dashboard representations).
