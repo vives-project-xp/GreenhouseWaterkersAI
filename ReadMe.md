@@ -54,9 +54,27 @@ We continued by trying to get a working dashboard using the [streamlit library] 
 This week we saw a breakthrough in the dashboard, as we got a working dashboard which makes predictions based on an uploaded image. We build a different model then the weeks before and with some changes to the code, we created a succesful dashboard. With that same model we created a script to analyse the model and images. We got a graph for the amount of images in each class, a confusion matrix, etc.. We also added some more images (for the day 19 and 20 classes, because they were not represented enough) and raised our accuracy to 88%. 
 ![image](https://github.com/user-attachments/assets/35a7e844-a36d-441a-9a4a-59232430ec8b)
 
+### Week 8
+
+
+### Week 9
+We tried out a rather new function in edge impulse which is called the EON tuner. It compares some random options for your specific data and compares them with eachother. 
+
+![image](https://github.com/user-attachments/assets/f573dfe0-5af0-4539-ac1d-fcfad8a18ad3)
+
+We tried out the "best" model and got a slightly better result then our previous model. 
+
+![image](https://github.com/user-attachments/assets/af6275ba-656e-4e4e-ad9b-b233e60675ab)
+
+And after some more finetuning and testing, the model turned out to have an accuracy of 92.5% (on validation data).
+
+![image](https://github.com/user-attachments/assets/273ca12d-a3b8-4e1a-9eb9-49568c4ceb57)
+
+
+
 
 ## Architecture
-Below you find the [architecture document] (./ArchitectureDocuments/ArchitectureDoc.pdf) with some explanation.
+Below you find the [architecture document](./ArchitectureDocuments/ArchitectureDoc.pdf) with some explanation.
 ![image](https://github.com/user-attachments/assets/0e066311-f14f-4c5c-9857-6393a01e0a65)
 ### Software
 To train our model, we use different libraries, software, and hardware devices. To capture images from the watercress, we used the camera of our phone and saved them on a hard drive. Later, we also used Labelbox to label the images (and save them). This is how we created our dataset, which exists only of folders with the days. This is because edge impulse can automatically split between validation, training, and test data. To evaluate, display, and proof our model, we will create a small and basic dashboard using streamlit (which is a Python library used for dashboard representations).
