@@ -74,6 +74,10 @@ For our raspberry pi, we wanted to make a casing so that it's nice to present it
 The case exists out of 3 components, a bottom compartment for the battery, a middle part to fixate the raspberryPI on and joint the two parts together, and a top part to protect the Sense Hat.
 The design has multiple holes for airflow so both the raspberryPI and the battery don't overheat. Duo to the fact that we're using a Sense Hat, we had to make a hole in the top part to make sure the LED matrix is visible.
 For the camera, we decided not the fixate it in the case, but to make a hole in the top part so the camera can be attached to the raspberryPI. This way it's easier to point the camera in the right direction.
+![image](https://github.com/user-attachments/assets/f88615d0-863c-4489-bb53-b149d945b4d7)
+![image](https://github.com/user-attachments/assets/b0e150d7-804e-4327-8e1d-b1d73fd95051)
+![image](https://github.com/user-attachments/assets/bd763d5d-75a9-40f3-9cfd-d2cd5bb8d2dc)
+![image](https://github.com/user-attachments/assets/67d2b31a-b339-4617-b4d8-0b4e6afb6f41)
 
 ### Week 9
 
