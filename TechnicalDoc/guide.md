@@ -117,3 +117,15 @@ or run
 ```
 pip install RPi.GPIO sense-hat picamera opencv-python Pillow numpy requests edge-impulse-cli
 ```
+
+### Case for Raspberry Pi 5, Sense Hat, and external battery
+
+The case in the [3Dprints](../3DPrints/) folder is designed to fit the Raspberry Pi 5 with an active cooler, the Sense HAT, and [this](https://www.kiwi-electronics.com/nl/v50-usb-battery-pack-4351?search=powerbank%205V%202.4A) external battery.
+
+For the camera, a hole is included in the top part of the case to make it easier to aim the camera in the correct direction. The battery is housed in the bottom compartment of the case. The case provides access to the USB ports and the battery's on/off button, allowing the battery to be charged without removing it from the case and enabling the Raspberry Pi 5 to be turned on and off. The Raspberry Pi is secured to the intermediate plate with screws. Spacer tubes are used to ensure that the Sense HAT is level with the pin headers and the top part of the case. The intermediate plate also features a hole for the USB cable from the battery to connect to the Raspberry Pi 5.
+
+In the top part of the case, a hole is included to make the LED matrix of the Sense HAT visible and to allow the button on the Sense HAT to be pressed. The top part of the case is designed to be attached to the bottom part using screws.
+
+The entire case is equipped with air vents to prevent any components from overheating.
+
+This prototype case is printed with PLA filament. However, if the case will be used in a greenhouse, we recommend printing it with PETG filament, as PLA filament can deform at high temperatures and may discolor.
