@@ -1,6 +1,6 @@
-## Guide
+# Guide
 This section describes the exact steps to take to make this project yourself!
-### Dataset creation
+## Dataset creation
 To build a dataset for watercress growth, you'll need to start by planting the watercress! Here’s a step-by-step guide to set up your experiment and capture high-quality data:
 1) Planting the watercress
    - **Materials**: Watercress seeds, a small container, soil, water, and a spray bottle.
@@ -19,7 +19,7 @@ To build a dataset for watercress growth, you'll need to start by planting the w
 
 By following these steps, you can create a dataset of watercress growth that can be used to train a machine learning model to predict the age of the watercress based on its appearance.
 
-### Labeling | [Labelbox](https://labelbox.com/)
+## Labeling | [Labelbox](https://labelbox.com/)
 After creating a dataset of watercress, you need to label the images. We used Labelbox to label the images.
 1) Go to the Labelbox website (https://labelbox.com/) and create an account. This will lead you to the dashboard screen where you can create a new project. 
 2) After creating a new project, you will need to add data to the project. To do this go to the catalog tab and click on the "New" button. This will add a new dataset to the project.
@@ -28,7 +28,7 @@ After creating a dataset of watercress, you need to label the images. We used La
 5) After labeling all the images, you need to review all the labels to make sure they are correct. You can do this by clicking on the "Review" tab and reviewing the labels one by one. If you find any mistakes, you can correct them by clicking on the label and editing it.
 6) After reviewing all the labels, you can export the labels by clicking on the "Export" button on the "Done" tab. This will export the labels in a JSON format. You can use this JSON file to write a python script that downloads the images with the bounding boxes and all the information you need to upload them to edge impulse. You can download the images into one folder so it's easier to upload them to edge impulse.
 
-### Edge Impulse | [Edge Impulse](https://studio.edgeimpulse.com/) 
+## Edge Impulse | [Edge Impulse](https://studio.edgeimpulse.com/) 
 1) After signing up, you can create and name a project, which will lead you to the dashboard screen. Scroll down till you find the area about **project info** on the right side. For this project, set the labeling method to "one label per data item." This setting is used for classification. The other one is used for object detection, which we don't need for this specific project.
 2) For now we can skip the device section as we will upload images and not get the data ourselves. If you want to make the images with your embedded device, connect using the edge impulse documentation (or follow the steps later in this guide for Raspberry Pi 5 only).
 3) Proceed to the **Data Acquisition** section and press upload data. For upload mode, you can press "select a folder," as we've labeled all data in folders. Under select files, press the button and navigate to your data folder. Now select the correct folder (iterate over all of the folders). Under upload into category, we chose to let Edge Impulse split the data itself, but if you have performed the split, you can select "training" or "test" data accordingly. Under "label," choose the bottom option and fill in the label, matching the folder name (so "0" for day 0, etc.). At the top, you will now find the amount of items and the split. Aim for a split of around 80%/20% for training/test data.
@@ -54,7 +54,7 @@ The left top to right bottom diagonal (green squares) is very important in this 
 The first step is installing Edge Impulse on your device, in our case a Raspberry Pi 5. There is a very simple [guide] (https://docs.edgeimpulse.com/docs/edge-ai-hardware/cpu/raspberry-pi-5) made by Edge Impulse themselves. After having installed it, you need to follow the on-screen prompts and set up Edge Impulse on the device. It is a very simple process of logging in, selecting your input devices, and what project you're working on.
       
 
-### Deployment
+## Deployment
 To deploy the model on your device, there are 2 ways. The first is with the SDK's. Simply go to your Edge Impulse dashboard and navigate to the "Deployment" tab. 
 
 ![image](../ArchitectureDocuments/Deploy.png)
@@ -62,7 +62,7 @@ To deploy the model on your device, there are 2 ways. The first is with the SDK'
 After having selected the right deployment (in our case, Linux AARCH64), you need to run `edge-impulse-linux-runner` on your device, and it should connect if you set it up right.
 The second way involves placing the downloaded model file onto the device itself. This can be done through various means; we used WinSCP to place the file onto our Raspberry Pi 5. After that, you can use the model freely in your project.
 
-### Dashboard
+## Dashboard
 To prove our model works, we want to create a very simple dashboard that shows the prediction (from our model) when an image is pressed. For this we will use a virtual environment.
 1) Get the .lite file from the dashboard. Place it in your project folder
 2) We use windows, but it's recommended to use Linux (WSL) for this part. Follow the [Installation guide ](https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview) if you don't have it installed already.
@@ -118,7 +118,7 @@ or run
 pip install RPi.GPIO sense-hat picamera opencv-python Pillow numpy requests edge-impulse-cli
 ```
 
-### Case for Raspberry Pi 5, Sense Hat, and external battery
+## Case for Raspberry Pi 5, Sense Hat, and external battery
 
 The case in the [3Dprints](../3DPrints/) folder is designed to fit the Raspberry Pi 5 with an active cooler, the Sense HAT, and [this](https://www.kiwi-electronics.com/nl/v50-usb-battery-pack-4351?search=powerbank%205V%202.4A) external battery.
 
