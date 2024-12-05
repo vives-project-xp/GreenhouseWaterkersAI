@@ -1,6 +1,6 @@
 |   Method   |   Model   |    Training Acc  |  Test Acc | Flash| RAM|Inf |
 |------------|-----------|------------------|-----------|------|----|----|
-| Transfer   |MobileNetV2|      81.2%       |  78.22%   | 1.6M |893k|2ms |(final layer: 16 neurons, 0.1 dropout)
+| Transfer   |MobileNetV2|      91.0%       |  84.56%   | 1.6M |893k|2ms |(final layer: 16 neurons, 0.1 dropout)
 | Learning   |96x96 0.35 |                  |           |      |    |    |
 |------------|-----------|------------------|-----------|------|----|----|
 | Transfer   |MobileNetV1|      46.8%       |  10.16%   | 877k |300k|1ms |(no final dense layer, 0.1 dropout)
