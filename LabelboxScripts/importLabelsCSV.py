@@ -34,13 +34,6 @@ for item in data:
     # Bestandsnaam instellen voor het opslaan
     output_path = os.path.join(output_dir, external_id)
 
-    # Download de afbeelding
-    # try:
-    #     urllib.request.urlretrieve(row_data_url, output_path)
-    #     print(f"Afbeelding opgeslagen als: {output_path}")
-    # except Exception as e:
-    #     print(f"Fout bij het downloaden van {external_id}: {e}")
-
     # Verwerk de annotaties die bij deze afbeelding horen
     annotations = item.get('projects', {}).get('cm2ogxkej00pz07xyagvu7u0n', {}).get('labels', [])
     for label in annotations:
