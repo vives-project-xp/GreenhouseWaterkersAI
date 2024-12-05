@@ -25,38 +25,38 @@
 
 MobileNetV2 96x96 0.35 TL
 
-![alt text](image-1.png)
+![alt text](Images/image-1.png)
 
 MobileNetV1 96x96 0.25 TL
 
-![alt text](image.png)
+![alt text](Images/image.png)
 
 EfficiNetB0 TL
 
-![alt text](image-2.png)
+![alt text](Images/image-2.png)
 
 Classification
 
-![alt text](image-3.png)
+![alt text](Images/image-3.png)
 
 Akida classification
 
-![alt text](image-4.png)
+![alt text](Images/image-4.png)
 
 Akida TL
 
-![alt text](image-5.png)
+![alt text](Images/image-5.png)
 
 Regressie
 
-![alt text](image-6.png)
+![alt text](Images/image-6.png)
 
 
 
 FINAL CHOICE: 
 Transfer learning MobileNetV2(96x96 0.35)
-![alt text](image-9.png)
+![alt text](Images/image-9.png)
 
-![alt text](image-7.png)
+![alt text](Images/image-7.png)
 
-![alt text](image-8.png)
+![alt text](Images/image-8.png)
