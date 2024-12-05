@@ -53,7 +53,6 @@ Regressie
 
 
 
-
 FINAL CHOICE: 
 Transfer learning MobileNetV2(96x96 0.35)
 ![alt text](image-9.png)
