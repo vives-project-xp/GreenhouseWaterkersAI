@@ -25,7 +25,7 @@ Here you find a small list of the main goals we set for ourselves with deadlines
 - 24/10 Trained model [x]
 - 07/11 Dashboard to display model [x]
 - 22/11 Deployment on edge devices (perhaps with casing) [ ] note: to do stand alone deployment, and casing.
-- 05/12 Stand alone deployment, and casing [ ]
+- 05/12 Stand alone deployment, and casing [x]
 
 ## Materials and software
 
@@ -92,6 +92,10 @@ We tried out the "best" model and got a slightly better result then our previous
 And after some more finetuning and testing, the model turned out to have an accuracy of 92.5% (on validation data).
 
 ![image](https://github.com/user-attachments/assets/273ca12d-a3b8-4e1a-9eb9-49568c4ceb57)
+
+
+### Week 10
+
 
 ## Architecture
 
