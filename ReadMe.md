@@ -104,7 +104,7 @@ To train our model, we use different libraries, software, and hardware devices. 
 
 ### Hardware
 
-As an embedded device to run our model, we chose the Raspberry Pi 5. It's a single-board computer that we can use to deploy our AI model. We use the Raspberry Pi camera V2 (connected with 4-lane MIPI camera display transceivers) and the sense hat, which uses an LED matrix to represent, for example, the predicted age (which contains a joystick button).
+As an embedded device to run our model, we chose the Raspberry Pi 5. It's a single-board computer that we can use to deploy our AI model. We use the a Logitech USB camera and the sense hat, which uses an LED matrix to represent, for example, the predicted age (which contains a joystick button).
 
 ### Deployment | [Edge Impulse documentation](https://docs.edgeimpulse.com/docs)
 
