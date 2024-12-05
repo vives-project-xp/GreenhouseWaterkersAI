@@ -9,4 +9,5 @@ epochs          training accuracy
 50                      90.2%
 60                      90.2%
 75                      91.0%
+77                      91.7%
 100                     90.2%
