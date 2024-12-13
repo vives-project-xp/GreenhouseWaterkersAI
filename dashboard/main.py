@@ -15,14 +15,12 @@ class WatercressModel:
         self.output_details = self.interpreter.get_output_details()
     
     def preprocess_image(self, image: Image.Image) -> np.ndarray:
-        """Preprocess image for model input."""
         input_shape = self.input_details[0]['shape']
         image = image.resize((input_shape[1], input_shape[2]))
         image_array = np.array(image, dtype=np.float32) / 255.0
         return np.expand_dims(image_array, axis=0)
     
     def predict(self, image: Image.Image) -> Tuple[int, float, List[Tuple[str, float]], Dict[str, float]]:
-        """Run inference on an image."""
         processed_image = self.preprocess_image(image)
         self.interpreter.set_tensor(self.input_details[0]['index'], processed_image)
         self.interpreter.invoke()
@@ -42,12 +40,11 @@ class Dashboard:
         st.set_page_config(layout="wide")
         self.model = WatercressModel("model.lite")
         
-    def load_image(self, image_path: str) -> Image.Image:
-        """Load and convert image to RGB."""
-        return Image.open(image_path).convert("RGB")
+    def load_image(self, image_path: str) -> Tuple[Image.Image, str]:
+        """Load image and return both the image and filename."""
+        return Image.open(image_path).convert("RGB"), os.path.basename(image_path)
     
     def create_prediction_plot(self, age_probabilities: Dict[str, float]) -> go.Figure:
-        """Create confidence plot."""
         age_labels = [str(i) for i in range(21)]
         prob_values = [age_probabilities[label] for label in age_labels]
         
@@ -68,7 +65,7 @@ class Dashboard:
         )
         return fig
     
-    def sidebar(self) -> List[Image.Image]:
+    def sidebar(self) -> List[Tuple[Image.Image, str]]:
         """Create sidebar with image selection options."""
         st.sidebar.title("Image Selection")
         
@@ -93,30 +90,32 @@ class Dashboard:
         # Display images in a grid with checkboxes
         for idx, image_file in enumerate(image_files):
             image_path = os.path.join(example_folder, image_file)
-            image = self.load_image(image_path)
+            image, filename = self.load_image(image_path)
             
             current_col = col1 if idx % 2 == 0 else col2
             with current_col:
                 st.image(image, use_container_width=True)
                 if st.checkbox("Select", key=f"img_{idx}"):
-                    selected_images.append(image)
+                    selected_images.append((image, filename))
         
         # Add uploaded file if present
         if uploaded_file is not None:
             image = Image.open(uploaded_file).convert("RGB")
-            selected_images.append(image)
+            filename = uploaded_file.name
+            selected_images.append((image, filename))
             
         return selected_images
     
-    def display_predictions(self, images: List[Image.Image]):
+    def display_predictions(self, image_data: List[Tuple[Image.Image, str]]):
         """Display images and their predictions."""
-        for idx, image in enumerate(images):
+        for idx, (image, filename) in enumerate(image_data):
             st.markdown(f"### Image {idx + 1}")
             
             img_col, plot_col = st.columns(2)
             
             with img_col:
                 st.image(image, use_container_width=True)
+                st.caption(f"Filename: {filename}")
                 predicted_age, confidence, _, age_probabilities = self.model.predict(image)
                 
                 met_col1, met_col2 = st.columns(2)
