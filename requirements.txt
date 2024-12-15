@@ -1,0 +1,5 @@
+streamlit==1.40.1
+tensorflow==2.17.0
+numpy==1.26.4
+Pillow==11.0.0
+plotly==5.24.1
