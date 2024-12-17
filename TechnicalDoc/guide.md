@@ -118,6 +118,19 @@ or run
 pip install RPi.GPIO sense-hat picamera opencv-python Pillow numpy requests edge-impulse-cli
 ```
 
+## Docker
+In the root of this repository, you can find a Dockerfile. This file can be used to create a Docker container that builds the dashboard in a container. This is useful if you want to run the dashboard on a server or in the cloud. To build the Docker container, you can use the following command after you have installed Docker on your system and cloned the repository:
+```
+docker compose up
+```
+This command will build the Docker container and run the dashboard inside the container. You can access the dashboard by navigating to http://localhost:8501 in your web browser. Once you are done using the dashboard, you can stop the container by pressing `Ctrl+C` in the terminal where you ran the `docker compose up` command and cleaning up the container by running the following command:
+```
+docker compose down
+```
+We decided to use Docker because it makes it easy to package the dashboard and its dependencies into a container that can be run on any system that has Docker installed. This makes it easy to deploy the dashboard on a server or in the cloud without having to worry about installing dependencies or setting up the environment.
+
+Our docker container runs on a virtual machine on the server and is accessible through the following link: <!-- ADD LINK HERE -->
+
 ## Case for Raspberry Pi 5, Sense Hat, and external battery
 
 The case in the [3Dprints](../3DPrints/) folder is designed to fit the Raspberry Pi 5 with an active cooler, the Sense HAT, and [this](https://www.kiwi-electronics.com/nl/v50-usb-battery-pack-4351?search=powerbank%205V%202.4A) external battery.
