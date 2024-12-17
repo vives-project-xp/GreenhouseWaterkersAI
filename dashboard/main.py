@@ -38,11 +38,13 @@ class WatercressModel:
 class Dashboard:
     def __init__(self):
         st.set_page_config(layout="wide")
-        self.model = WatercressModel("model.lite")
+        model_path = os.path.join(os.path.dirname(__file__), "model.lite")
+        self.model = WatercressModel(model_path)
         
     def load_image(self, image_path: str) -> Tuple[Image.Image, str]:
         """Load image and return both the image and filename."""
-        return Image.open(image_path).convert("RGB"), os.path.basename(image_path)
+        full_image_path = os.path.join(os.path.dirname(__file__), image_path)
+        return Image.open(full_image_path).convert("RGB"), os.path.basename(image_path)
     
     def create_prediction_plot(self, age_probabilities: Dict[str, float]) -> go.Figure:
         age_labels = [str(i) for i in range(21)]
@@ -77,7 +79,7 @@ class Dashboard:
         st.sidebar.subheader("Select Images")
         
         selected_images = []
-        example_folder = "example_images"
+        example_folder = os.path.join(os.path.dirname(__file__), "example_images")
         image_files = [
             f for f in os.listdir(example_folder)
             if f.lower().endswith(('.png', '.jpg', '.jpeg'))
@@ -89,7 +91,7 @@ class Dashboard:
         
         # Display images in a grid with checkboxes
         for idx, image_file in enumerate(image_files):
-            image_path = os.path.join(example_folder, image_file)
+            image_path = os.path.join("example_images", image_file)
             image, filename = self.load_image(image_path)
             
             current_col = col1 if idx % 2 == 0 else col2
