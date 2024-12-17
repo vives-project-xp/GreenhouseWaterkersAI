@@ -1,0 +1,7 @@
+services:
+  web:
+    container_name: streamlit
+    build: .
+    ports:
+      - "8501:8501"
+    restart: always

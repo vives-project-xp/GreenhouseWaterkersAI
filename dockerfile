@@ -1,23 +1,20 @@
-# Gebruik een officiële Python-basisimage
+# Python images that is needed for main.py code
 FROM python:3.11-slim
 
-# Stel de werkdirectory in
+# Set workdirectory
 WORKDIR /app
 
-# Kopieer alleen de vereiste bestanden
-COPY dashboard /app/dashboard
+# Copy the requirements file to the container
 COPY requirements.txt /app
+# Copy the dashboard folder to the container
+COPY dashboard /app/dashboard
 
-# Installeer de vereisten
-RUN python -m venv myenv && \
-    ./myenv/bin/pip install --upgrade pip && \
-    ./myenv/bin/pip install -r requirements.txt
+# Install the necessary tools
+RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
 
-# Stel de virtuele omgeving in als standaard Python
-ENV PATH="/app/myenv/bin:$PATH"
-
-# Exposeer de standaard Streamlit-poort
+# Expose on the right port
 EXPOSE 8501
 
-# Start het Streamlit-dashboard
-CMD ["streamlit", "run", "dashboard/main.py", "--server.port=8501", "--server.address=0.0.0.0"]
+# Set CMD instructions 
+CMD ["streamlit", "run", "dashboard/main.py"]
